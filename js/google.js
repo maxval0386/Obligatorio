@@ -1,8 +1,10 @@
+// Chequea si existe usuario logueado y de no estarlo direcciona al login.html
 var estado=localStorage.getItem("estado");
 if (!location.href.includes("login.html") && (estado==null || estado=="false")){
     location.href="login.html";
 };
 
+// Funciones expecíficas de google con ciertas modificaciones para que funcione con las validaciones que se estan utilizando
 function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
     localStorage.setItem("user", JSON.stringify(profile.getName()));
