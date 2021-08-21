@@ -9,7 +9,7 @@ var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
 
-//Función para ordenar el listado de productos acorde el filtro seleccionado
+//Función para ordenar el listado de productos (comparaciones) acorde el filtro seleccionado
 function sortProducts(criteria, array) {
   let result = [];
   if (criteria === ORDER_ASC_BY_PRICE) {

@@ -49,17 +49,21 @@
                 <div class="col text-right">
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                       <label class="btn btn-light" id="sortRel">
+                        <!-- Filtro por relevancia -->
                         <input type="radio" name="options" autocomplete="off" /><i class="fas fa-chart-line mr-1"></i>Relevancia
                       </label>
                       <label class="btn btn-light" id="sortDesc">
+                        <!-- Filtro por precio descendente-->
                         <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-down mr-1"></i>Precio
                       </label>
-                      <label class="btn btn-light active" id="sortAsc"> <input type="radio" name="options" autocomplete="off" /><i
+                      <label class="btn btn-light active" id="sortAsc"> <input type="radio" name="options" autocomplete="off" /><
+                        <!-- Filtro por precio ascendente-->
                           class="fas fa-sort-amount-up mr-1" checked></i>Precio
                       </label>
                     </div>
                 </div>
             </div>
+            <!-- Filtro por rango de precio-->
             <div class="row justify-content-end">
               <div class="col-md-6"></div>
                 <div class="col-md-6 col-sm-12 mb-1 container">
@@ -82,6 +86,7 @@
                   </div>
                 </div>
             </div>
+            <!-- Placeholder para insertar la lista de producto desde js-->
             <div class="container p-4">
               <div class="row" id="prod-list-container">
                 </div>
