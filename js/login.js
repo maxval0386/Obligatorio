@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function(e){
   function boton(){
 
     if(document.getElementById("recordar").checked){
-      localStorage.setItem("user", document.getElementById("useremail").value);
       localStorage.setItem("pass", document.getElementById("userpassword").value);
     }
     else {
       localStorage.clear();
     }
     // Crea la "variable" para indicar que hay un usuario guardado
-    localStorage.setItem("estado", "true"); 
-  } 
+    localStorage.setItem("estado", "true");
+    localStorage.setItem("user", document.getElementById("useremail").value); 
+  }

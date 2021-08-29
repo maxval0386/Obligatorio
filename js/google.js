@@ -4,6 +4,11 @@ if (!location.href.includes("login.html") && (estado==null || estado=="false")){
     location.href="login.html";
 };
 
+// Asigna el nombre de usuario al boton del menú de usuario en la barra de navegación
+document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("usuario_menu_button").innerText=localStorage.getItem("user"); 
+})
+
 // Funciones expecíficas de google con ciertas modificaciones para que funcione con las validaciones que se estan utilizando
 function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();

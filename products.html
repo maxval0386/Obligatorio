@@ -33,8 +33,15 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="login.html" onclick="desconectar()">Salir</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario_menu_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="usuario_menu_button">
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+            <a class="dropdown-item" href="login.html" onclick="desconectar()">Salir</a>
+          </div>
+        </div>
           </div>
       </div>
     </nav>
@@ -63,10 +70,13 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+            <div class="col-md-4 mb-3">
+              <input class="form-control pr-5" type="search" id="search_box" placeholder="Buscar"/>
+            </div>
             <!-- Filtro por rango de precio-->
-            <div class="row justify-content-end">
-              <div class="col-md-6"></div>
-                <div class="col-md-6 col-sm-12 mb-1 container">
+            <div class="col-md-8  justify-content-end">
+                <div class="col-md-8 col-sm-12 mb-1 container">
                   <div class="row container p-0 m-0">
                     <div class="col">
                       <p class="font-weight-normal text-right my-2">Cant.</p>
@@ -86,6 +96,7 @@
                   </div>
                 </div>
             </div>
+          </div>
             <!-- Placeholder para insertar la lista de producto desde js-->
             <div class="container p-4">
               <div class="row" id="prod-list-container">

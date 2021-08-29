@@ -8,6 +8,7 @@ var category_prod = [];
 var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
+var buscar = undefined;
 
 //Función para ordenar el listado de productos (comparaciones) acorde el filtro seleccionado
 function sortProducts(criteria, array) {
@@ -60,37 +61,45 @@ function showProductList() {
       (maxPrice == undefined ||
         (maxPrice != undefined && parseInt(prod.cost) <= maxPrice))
     ) {
-      //Usando los valores de la api cree el html para cada producto
-      htmlContentToAppend +=
-        `
+      // Filtra los productos segun lo que se agrega en la barra de búsqueda
+      if (
+        buscar == undefined ||
+        prod.name.toLowerCase().indexOf(buscar) != -1 ||
+        prod.description.toLowerCase().indexOf(buscar) != -1
+      ) {
+        //Usando los valores de la api cree el html para cada producto
+        htmlContentToAppend +=
+          `
               <a href="product-info.html" class="list-group-item list-group-item-action col-md-12">
                   <div class="row">
                       <div class="col-3">
                           <img src="` +
-        prod.imgSrc +
-        `" alt="` +
-        prod.description +
-        `" class="img-thumbnail">
+          prod.imgSrc +
+          `" alt="` +
+          prod.description +
+          `" class="img-thumbnail">
                       </div>
                       <div class="col">
                           <div class="d-flex w-100 justify-content-between">
                               <h4 class="mb-1">` +
-        prod.name +
-        ` - U$S ` +
-        prod.cost +
-        ` </h4>
+          prod.name +
+          ` - U$S ` +
+          prod.cost +
+          ` </h4>
                               <small class="text-muted"> ` +
-        prod.soldCount +
-        ` vendidos</small>
+          prod.soldCount +
+          ` vendidos</small>
                           </div>
                           <p class="mb-1">` +
-        prod.description +
-        `</p>
+          prod.description +
+          `</p>
                       </div>
                   </div>
               </a>
               `;
+      }
     }
+    
     //Se agrega el código generado al html del sitio
     document.getElementById("prod-list-container").innerHTML =
       htmlContentToAppend;
@@ -166,4 +175,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
       showProductList();
     });
+  
+  document.getElementById("search_box").addEventListener("input", function(){
+    buscar = document.getElementById("search_box").value.toLowerCase();
+    showProductList();
+  });
 });
