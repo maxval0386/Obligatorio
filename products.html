@@ -63,40 +63,34 @@
                         <!-- Filtro por precio descendente-->
                         <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-down mr-1"></i>Precio
                       </label>
-                      <label class="btn btn-light active" id="sortAsc"> <input type="radio" name="options" autocomplete="off" /><
+                      <label class="btn btn-light active" id="sortAsc"> <input type="radio" name="options" autocomplete="off" />
                         <!-- Filtro por precio ascendente-->
                         <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-up mr-1" checked></i>Precio
                       </label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-            <div class="col-md-4 mb-3">
-              <input class="form-control pr-5" type="search" id="search_box" placeholder="Buscar"/>
-            </div>
-            <!-- Filtro por rango de precio-->
-            <div class="col-md-8  justify-content-end">
-                <div class="col-md-8 col-sm-12 mb-1 container">
-                  <div class="row container p-0 m-0">
-                    <div class="col">
-                      <p class="font-weight-normal text-right my-2">Cant.</p>
-                    </div>
-                    <div class="col">
-                      <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
-                    </div>
-                    <div class="col">
-                      <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
-                    </div>
-                    <div class="col-3 p-0">
-                      <div class="btn-group" role="group">
-                        <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
-                        <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                      </div>
-                    </div>
-                  </div>
+            <div class="row no-gutters">
+              <div class="col-md-4 mb-3">
+                <input class="form-control pr-5" type="search" id="search_box" placeholder="Buscar" />
+              </div>
+              <!-- Filtro por rango de precio-->
+              <div class="col-auto col-sm mb-3">
+                <p class="font-weight-normal text-right my-2">Cant.</p>
+              </div>
+              <div class="col col-lg-2 px-1">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+              </div>
+              <div class="col col-lg-2 px-1">
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
+              </div>
+              <div class="col-auto pl-1 mb-3 mx-auto">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
+                  <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
                 </div>
+              </div>
             </div>
-          </div>
             <!-- Placeholder para insertar la lista de producto desde js-->
             <div class="container p-4">
               <div class="row" id="prod-list-container">

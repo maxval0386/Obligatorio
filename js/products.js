@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       showProductList();
     });
   
-  document.getElementById("search_box").addEventListener("input", function(){
+  document.getElementById("search_box").addEventListener("keyup", function(){
     buscar = document.getElementById("search_box").value.toLowerCase();
     showProductList();
   });
