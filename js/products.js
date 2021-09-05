@@ -61,7 +61,8 @@ function showProductList() {
       (maxPrice == undefined ||
         (maxPrice != undefined && parseInt(prod.cost) <= maxPrice))
     ) {
-      // Filtra los productos segun lo que se agrega en la barra de búsqueda
+      // Filtra los productos segun lo que se agrega en la barra de búsqueda.
+      // Chequea el valor en el search_box y lo buscando en el nombre o descripción
       if (
         buscar == undefined ||
         prod.name.toLowerCase().indexOf(buscar) != -1 ||
@@ -175,7 +176,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
       showProductList();
     });
-  
+  // Asocia el evento de keyup al search_box y al disparar el evento actualiza la variable 
+  // buscar con el valor que tiene el search_box y muestra los productos
   document.getElementById("search_box").addEventListener("keyup", function(){
     buscar = document.getElementById("search_box").value.toLowerCase();
     showProductList();
