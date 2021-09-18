@@ -1,6 +1,6 @@
-var relatedProduct;
 var productInfo;
 var productComment;
+var relatedProduct;
 
 // Muestro la información de los productos obtenidas por el json
 function showProductInfo() {
@@ -86,6 +86,7 @@ function showProductInfo() {
     }
   }
 
+  // Funcion para publocar un nuevo comentario
   function publicar_comentario() {
     let comentario = {
       score: sessionStorage.starRating,
@@ -93,11 +94,13 @@ function showProductInfo() {
       user: localStorage.getItem("user"),
       dateTime: fecha_actual(),
     };
+    // Analizo la cadena de texto Json la cual parte de los objetos convertidos en una cadena de texto 
     productComment.push(JSON.parse(JSON.stringify(comentario)));
     showProductComment();
     document.getElementById("comentario_nuevo").value="";
   }
 
+  // Funcion para que la fecha sea del mismo formato a la que ya figura en los comentarios precargados
   function fecha_actual() {
     var date=new Date()
     var temp={

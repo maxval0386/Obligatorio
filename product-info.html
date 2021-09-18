@@ -28,6 +28,7 @@
 </head>
 
 <body>
+  <!-- Menu de navegacion -->
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -39,15 +40,16 @@
           aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="usuario_menu_button">
-          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-          <a class="dropdown-item" href="login.html" onclick="desconectar()">Salir</a>
+          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="login.html" onclick="desconectar()">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
 
   <main role="main" class="pb-5">
+    <!-- Informacion del producto (movimiento de las iagenes, precio, cantidad de vendidos, descripcion) -->
     <div class="text-center p-3">
       <div id="informacion_productos">
         <div class="container-fluid">
@@ -65,16 +67,11 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>
-
             </div>
-
             <div class="col-4 col align-self-center">
               <h4>Precio desde: </h4>
-
               <h2 class="text-danger" id="precio_producto" style="font-family:Arial black, Helvetica, sans-serif"></h2>
-
               <P id="vendidos_productos"></P>
-
               <div id="accordion" class="pt-5 mt-5 ">
                 <div class="card">
                   <a class="text-reset btn btn-lg btn-light " data-toggle="collapse" href="#collapseOne">Descripción</a>
@@ -87,6 +84,7 @@
         </div>
       </div>
     </div>
+    <!-- Panel de comentarios y calificación por parte del usuario -->
     <div class="col col-lg-12">
       <div class="panel panel-default widget">
         <div class="panel-heading">
@@ -100,7 +98,6 @@
       </div>
       <!-- Estrella -->
       <div id="stars-comentario" class="col-auto d-md-flex mb-2 pl-3 btns-stars">
-
         <!--Funcion que se ejecuta en el JS y establece cuantas estrellas se eligen-->
         <span onmouseover="starmark(this)" id="1one" style="font-size: 20px; cursor: pointer"
           class="fa fa-star checked"></span>
