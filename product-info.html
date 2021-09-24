@@ -72,7 +72,7 @@
               <h4>Precio desde: </h4>
               <h2 class="text-danger" id="precio_producto" style="font-family:Arial black, Helvetica, sans-serif"></h2>
               <P id="vendidos_productos"></P>
-              <div id="accordion" class="pt-5 mt-5 ">
+              <div id="accordion" class="pt-3 mt-3 ">
                 <div class="card">
                   <a class="text-reset btn btn-lg btn-light " data-toggle="collapse" href="#collapseOne">Descripción</a>
                   <div id="collapseOne" class="collapse card-body" data-parent="#accordion">
@@ -101,14 +101,10 @@
         <!--Funcion que se ejecuta en el JS y establece cuantas estrellas se eligen-->
         <span onmouseover="starmark(this)" id="1one" style="font-size: 20px; cursor: pointer"
           class="fa fa-star checked"></span>
-        <span onmouseover="starmark(this)" id="2one" style="font-size: 20px; cursor: pointer"
-          class="far fa-star"></span>
-        <span onmouseover="starmark(this)" id="3one" style="font-size: 20px; cursor: pointer"
-          class="far fa-star"></span>
-        <span onmouseover="starmark(this)" id="4one" style="font-size: 20px; cursor: pointer"
-          class="far fa-star"></span>
-        <span onmouseover="starmark(this)" id="5one" style="font-size: 20px; cursor: pointer"
-          class="far fa-star"></span>
+        <span onmouseover="starmark(this)" id="2one" style="font-size: 20px; cursor: pointer" class="far fa-star"></span>
+        <span onmouseover="starmark(this)" id="3one" style="font-size: 20px; cursor: pointer" class="far fa-star"></span>
+        <span onmouseover="starmark(this)" id="4one" style="font-size: 20px; cursor: pointer" class="far fa-star"></span>
+        <span onmouseover="starmark(this)" id="5one" style="font-size: 20px; cursor: pointer" class="far fa-star"></span>
         <br />
       </div>
       <div>
@@ -117,17 +113,19 @@
         <button onclick="publicar_comentario()" type="button" style="margin-top: 10px; margin-left: 5px"
           class="btn btn-lg btn-success">Publicar</button>
       </div>
+      <div class="panel panel-default widget">
+        <div class="panel-heading">
+          <span class="glyphicon glyphicon-comment"></span>
+          <h2 class="panel-title">Articulos relacionados</h2>
+        </div>
+        <div class="panel-body">
+          <ul class="row" id="relacionados">
+          </ul>
+        </div>
+      </div>
     </div>
 
   </main>
-
-  <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-    <h4 class="alert-heading">¡A trabajar! :)</h4>
-    <p>Esta sección corresponde a:Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-    <hr>
-    <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-  </div>
-  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

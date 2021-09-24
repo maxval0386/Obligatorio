@@ -113,7 +113,52 @@ function showProductInfo() {
     }
     return temp["y"]+"-"+temp["m"]+"-"+temp["d"]+" "+temp["h"]+":"+temp["min"]+":"+temp["s"]
   }
- 
+
+  function showProductRelated() {
+    let relatedInfo = "";
+    //El for pasa por el largo de los productos relacionados
+    for (let i = 0; i < productInfo.relatedProducts.length; i++) {
+      //Se guarda en pos la posicion de los productos relacionados guardados en productInfo
+      let pos = productInfo.relatedProducts[i];
+      //Se le asigna la informacion de ese producto a la variable related
+      let related = relatedProduct[pos];
+      //Se escribe el codigo html con concadenacion de texto
+      relatedInfo +=
+        `
+    <div class=" col-sm-4 ">
+        <div class="card rounded">
+            <div class="card-image">
+            <span class="card-notify-badge "><h6>` +
+        related.name +
+        `</h6></span>
+                
+                <img class="img-fluid" src="` +
+        related.imgSrc +
+        `" alt=" ` +
+        related.name +
+        `" />
+            </div>
+            <div class="card-image-overlay m-auto">
+                
+                <span class="card-detail-badge">US$ ` +
+        related.cost +
+        `</span>
+                <span class="card-detail-badge">` +
+        related.soldCount +
+        ` vendidos</span>
+            </div>
+            <div class="card-body text-center">
+                <div class="ad-title m-auto">
+                </div>
+                <a class="ad-btn" href="#">Mostrar</a>
+            </div>
+        </div>
+    </div>
+    `;
+  }
+  document.getElementById("relacionados").innerHTML = relatedInfo;
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -135,4 +180,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductComment();
       }
     });
+   getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      relatedProduct = resultObj.data;
+
+      showProductRelated();
+    }
   });
+});
