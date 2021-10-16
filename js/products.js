@@ -84,14 +84,14 @@ function showProductList() {
                           <div class="d-flex w-100 justify-content-between">
                               <h4 class="mb-1">` +
           prod.name +
-          ` - U$S ` +
+          ` - <strong>U$S ` +
           prod.cost +
-          ` </h4>
-                              <small class="text-muted"> ` +
+          ` </h4> </strong>
+                              <small class="text-success"> ` +
           prod.soldCount +
           ` vendidos</small>
                           </div>
-                          <p class="mb-1">` +
+                          <p class="text-secondary mb-1">` +
           prod.description +
           `</p>
                       </div>

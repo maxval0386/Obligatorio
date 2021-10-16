@@ -143,7 +143,7 @@ function showProductInfo() {
                 <span class="card-detail-badge">US$ ` +
         related.cost +
         `</span>
-                <span class="card-detail-badge">` +
+                <span class="card-detail-badge"> <br>` +
         related.soldCount +
         ` vendidos</span>
             </div>

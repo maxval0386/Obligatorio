@@ -16,7 +16,10 @@
   
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
   
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
@@ -66,10 +69,160 @@
       </div>
     </div>
   </nav>
+
+  <main role="main" class="pb-5" id="carrito">
+    <div class="text-center p-4">
+      <h2>Carrito</h2>
+      <p class="lead">Verás aquí todos los productos a comprar.</p>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-12 col-lg-9 col-xl-10" id="containerCart">
+        <h4 class="mb-3">Artículos seleccionados para comprar:</h4>
+        <div class="row form-inline">
+          <label class="col-auto mx-sm-0 my-1 ml-1 ml-sm-auto pr-0 px-sm-2" for="productCurrency">Moneda</label>
+          <select class="col col-sm-auto custom-select my-1 mx-3 ml-sm-0" id="productCurrency" onchange="cambioMoneda()">
+            <option value="UYU" selected>Pesos uruguayos (UYU)</option>
+            <option value="USD">Dólares estadounidenses (U$S)</option>
+          </select>
+        </div>
+        <ul id="listCart" class="list-group mb-3"></ul>
+  
+        <div class="container text-center align-items-center" id="cartDivRecibo">
+          <h4>Método de envío</h4>
+          <div class="row">
+            <div class="col-6">
+              <h5>Dirección:</h5>
+  
+              <form id="needs-validation">
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="streetInput">Calle</label>
+                      <input type="text" class="form-control" name="streetInput" id="streetInput" aria-label="calle" aria-describedby="calle" required>
+                      <div class="invalid-feedback">
+                        Ingrese una calle válida.
+                      </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-6 input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="numberInput">Número</label>
+                      <input type="text" class="form-control" name="numberInput" id="numberInput" aria-label="numero" aria-describedby="numero" required>
+                      <div class="invalid-feedback">
+                        Ingrese un número válido.
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-6 input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="cornerInput">Esquina</label>
+                      <input type="text" class="form-control" name="cornerInput" id="cornerInput" aria-label="esquina" aria-describedby="esquina" required>
+                      <div class="invalid-feedback">
+                        Ingrese una esquina válida.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <h5>País:</h5>
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="input-group-prepend">
+                      <label class="text" for="countryInput"></label>
+                      <input type="text" class="form-control" name="countryInput" id="countryInput" aria-label="pais" aria-describedby="pais" required>
+                      <div class="invalid-feedback">
+                        Ingrese un país válido.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+  
+            <div class="col-6">
+              <div class="row">
+                <div class="col">
+                  <h5>Tipo de envío:</h5>
+                  <div class="btn-group-toggle mb-2 mx-auto col-10" data-toggle="buttons">
+  
+                    <label class="btn btn-success active" type="button" for="standardRadio" data-toggle="button"
+                      aria-pressed="false" autocomplete="off">
+                      <input class="form-check-input" type="radio" name="tipoEnvio" id="standardRadio" value="0.05"
+                        checked onchange="calcTotal()">
+                      <i class="fas fa-people-carry"></i> +5%<br><br>
+                      Standard<br>
+                      de 12 a 15 días
+                    </label>
+  
+                    <label class="btn btn-warning" type="button" for="expressRadio" data-toggle="button"
+                      aria-pressed="false" autocomplete="off">
+                      <input class="form-check-input" type="radio" name="tipoEnvio" id="expressRadio" value="0.07"
+                        onchange="calcTotal()">
+                      <i class="fas fa-truck fa-lg"></i> +7%<br><br>
+                      Express<br>
+                      de 5 a 8 días
+                    </label>
+  
+                    <label class="btn btn-danger" type="button" for="premiumRadio" data-toggle="button"
+                      aria-pressed="false" autocomplete="off">
+                      <input class="form-check-input" type="radio" name="tipoEnvio" id="premiumRadio" value="0.15"
+                        onchange="calcTotal()">
+                      <i class="fas fa-shipping-fast fa-lg"></i> +15%<br><br>
+                      Premium<br>
+                      de 2 a 5 días
+                    </label>
+  
+                  </div>
+                </div>
+              </div>
+
+              <hr style="width: 100%;">
+
+            <div class="row">
+              <div class="col-9 mx-auto">
+
+                <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Subtotal:</h6>
+                    </div>
+                    <span class="text-dark" id="subtotalID"></span>
+                  </li>
+
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Costo de envío:</h6>
+                    </div>
+                    <span class="text-dark" id="envioID"></span>
+                  </li>
+
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="text-danger" id="totalConEnvioTextoID"></h6>
+                    </div>
+                    <strong id="totalConEnvioID"></strong>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
+      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 14/11/2021).</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
