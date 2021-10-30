@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   }
 })
 
-  //Es la funcion para guardar el estado del usuario y, en caso de especificarlo(tildar el checkbox), las credenciales de acceso 
+  //Es la funcion para guardar el estado del usuario y, en caso de especificarlo (tildar el checkbox), las credenciales de acceso 
   function boton(){
 
     if(document.getElementById("recordar").checked){

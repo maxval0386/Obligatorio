@@ -71,33 +71,22 @@ function showProductList() {
         //Usando los valores de la api cree el html para cada producto
         htmlContentToAppend +=
           `
-              <a href="product-info.html" class="list-group-item list-group-item-action col-md-12">
-                  <div class="row">
-                      <div class="col-3">
-                          <img src="` +
-          prod.imgSrc +
-          `" alt="` +
-          prod.description +
-          `" class="img-thumbnail">
-                      </div>
-                      <div class="col">
-                          <div class="d-flex w-100 justify-content-between">
-                              <h4 class="mb-1">` +
-          prod.name +
-          ` - <strong>U$S ` +
-          prod.cost +
-          ` </h4> </strong>
-                              <small class="text-success"> ` +
-          prod.soldCount +
-          ` vendidos</small>
-                          </div>
-                          <p class="text-secondary mb-1">` +
-          prod.description +
-          `</p>
-                      </div>
-                  </div>
-              </a>
-              `;
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-2 m-0 text-center">
+          <a href="product-info.html" class="p-0 mx-auto h-100 card list-group-item-action mwp-300">
+              <img src="${prod.imgSrc}" class="card-img-top" alt="Imagen">
+              <div class="card-body p-3">
+                  <h4 class="card-title"><strong>${prod.name}</strong></h4>
+                  <p class="card-text">
+                      ${prod.description}
+                  </p>
+              </div>
+              <div class="card-footer">
+                  Precio: <br> <strong>${prod.currency} ${prod.cost} </strong> <br>
+                  ${prod.soldCount} vendidos
+              </div>
+          </a>
+      </div>
+      `;
       }
     }
     

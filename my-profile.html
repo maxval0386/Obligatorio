@@ -52,8 +52,7 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario_menu_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </button>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario_menu_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu" aria-labelledby="usuario_menu_button">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
@@ -62,6 +61,92 @@
       </div>
     </div>
   </nav>
+
+  <main role="main">
+    <div class="container">
+      <div class="text-center p-4">
+        <h2>Perfil</h2>
+        <p class="lead">Verás aquí las opciones para editar el perfil personal.</p>
+      </div>
+      <div class="row text-center p-4 justify-content-md-center">
+        <div class="col-md-8 order-md-1" id="contenidoUsuario">
+          <h4 class="mb-3">Información personal:</h4>
+          <form class="pb-5" id="profile-info">
+
+            <div class="row text-center p-4 justify-content-md-center">
+              <div class="col-sm-8 col-lg-6 mb-3">
+                <label for="urlImg">Imagen:</label>
+                <!-- Boton trigger modal de la imagen -->
+                <button type="button" class="btn btn-block" data-toggle="modal" data-target="#imgUserModal">
+                  <img id="imgUsuario" class="img-thumbnail m-0" src="https://i.ibb.co/d7kZjZx/usuarios.jpg" alt="">
+                </button>
+                <span class="text-info">Click en la imagen para cambiar.</span>
+              </div>
+              <!-- Imagen del usuario (modal) -->
+              <div class="modal fade" id="imgUserModal" tabindex="-1" role="dialog" aria-labelledby="imgUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="imgUserModalLabel">Cambiar la imagen de perfil:</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+                      <label for="urlImg">URL</label>
+                      <input type="url" class="form-control" id="urlImg">
+                      <div class="invalid-feedback">URL incorrecta.</div>
+                      <span class="text-muted">Ingrese un link público.</span>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button id="setImg" type="button" class="btn btn-primary">Guardar imagen</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-8 col-lg-6 mb-3">
+                <label for="userName">Nombres:</label>
+                <input type="text" class="form-control" id="nombreUsuario" autofocus>
+              </div>
+              <div class="col-sm-8 col-lg-6 mb-3">
+                <label for="userLastName">Apellidos:</label>
+                <input type="text" class="form-control" id="apellidoUsuario">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3 col-lg-2 mb-3">
+                <label for="userAge">Edad:</label>
+                <input type="number" class="form-control" id="edadUsuario" min="18">
+              </div>
+              <div class="col-sm-8 col-lg-6 mb-3">
+                <label for="userEmail">E-mail:</label>
+                <input type="email" class="form-control" id="e-mailUsuario">
+                <div class="invalid-feedback">
+                  Ingrese su E-mail
+                </div>
+              </div>
+              <div class="col-sm-8 col-lg-4 mb-3">
+                <label for="userPhone">Teléfono de contacto:</label>
+                <input type="tel" pattern="[0-9]+" class="form-control" id="celUsuario">
+              </div>
+            </div>
+
+            <hr class="mb-4">
+            <input type="submit" value="Guardar perfil" class="btn btn-lg btn-primary" id="guardarPerfil">
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
