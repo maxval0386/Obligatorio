@@ -11,16 +11,16 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id"
     content="1072124329567-vghm4kc0inacln2rrf3u421n1qopn7cs.apps.googleusercontent.com">
-  
+
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
@@ -29,7 +29,7 @@
   <script src="js/google.js"></script>
   <!-- este es para logOut -->
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  
+
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -45,6 +45,12 @@
         font-size: 3.5rem;
       }
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -59,7 +65,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario_menu_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario_menu_button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="usuario_menu_button">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
@@ -80,76 +87,80 @@
         <h4 class="mb-3">Artículos seleccionados para comprar:</h4>
         <div class="row form-inline">
           <label class="col-auto mx-sm-0 my-1 ml-1 ml-sm-auto pr-0 px-sm-2" for="productCurrency">Moneda</label>
-          <select class="col col-sm-auto custom-select my-1 mx-3 ml-sm-0" id="productCurrency" onchange="cambioMoneda()">
+          <select class="col col-sm-auto custom-select my-1 mx-3 ml-sm-0" id="productCurrency"
+            onchange="cambioMoneda()">
             <option value="UYU" selected>Pesos uruguayos (UYU)</option>
             <option value="USD">Dólares estadounidenses (U$S)</option>
           </select>
         </div>
         <ul id="listCart" class="list-group mb-3"></ul>
-  
+
         <div class="container text-center align-items-center" id="cartDivRecibo">
           <h4>Método de envío</h4>
           <div class="row">
             <div class="col-6">
               <h5>Dirección:</h5>
-  
+
               <form id="needs-validation">
                 <div class="row">
                   <div class="col-12 mb-3">
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="streetInput">Calle</label>
-                      <input type="text" class="form-control" name="streetInput" id="streetInput" aria-label="calle" aria-describedby="calle" required>
-                      <div class="invalid-feedback">
-                        Ingrese una calle válida.
-                      </div>
-                      </div>
+                      <input type="text" class="form-control" name="streetInput" id="streetInput" aria-label="calle"
+                        aria-describedby="calle" required>
+                    </div>
                   </div>
                 </div>
-  
+
                 <div class="row">
                   <div class="col-6 input-group mb-3">
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="numberInput">Número</label>
-                      <input type="text" class="form-control" name="numberInput" id="numberInput" aria-label="numero" aria-describedby="numero" required>
-                      <div class="invalid-feedback">
-                        Ingrese un número válido.
-                      </div>
+                      <input type="text" class="form-control" name="numberInput" id="numberInput" aria-label="numero"
+                        aria-describedby="numero" required>
                     </div>
                   </div>
-  
+
                   <div class="col-6 input-group mb-3">
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="cornerInput">Esquina</label>
-                      <input type="text" class="form-control" name="cornerInput" id="cornerInput" aria-label="esquina" aria-describedby="esquina" required>
-                      <div class="invalid-feedback">
-                        Ingrese una esquina válida.
-                      </div>
+                      <input type="text" class="form-control" name="cornerInput" id="cornerInput" aria-label="esquina"
+                        aria-describedby="esquina" required>
                     </div>
                   </div>
                 </div>
-  
+
                 <h5>País:</h5>
                 <div class="row">
                   <div class="col-12 mb-3">
                     <div class="input-group-prepend">
                       <label class="text" for="countryInput"></label>
-                      <input type="text" class="form-control" name="countryInput" id="countryInput" aria-label="pais" aria-describedby="pais" required>
-                      <div class="invalid-feedback">
-                        Ingrese un país válido.
-                      </div>
+                      <input type="text" class="form-control" name="countryInput" id="countryInput" aria-label="pais"
+                        aria-describedby="pais" required>
                     </div>
                   </div>
                 </div>
-                
+
               </form>
+
+              <div class="row">
+                <button type="button" id="btnPago" class="btn btn-block btn-primary text-center col-9 mx-auto"
+                  data-toggle="modal" data-target="#modalFormaDePago">Forma de pago</button>
+                <!-- Mensaje de que se seleccionó la forma de pago -->
+
+              </div>
+              <div id="selecFormaDePago">
+              </div>
+
+
             </div>
-  
+
             <div class="col-6">
               <div class="row">
                 <div class="col">
                   <h5>Tipo de envío:</h5>
                   <div class="btn-group-toggle mb-2 mx-auto col-10" data-toggle="buttons">
-  
+
                     <label class="btn btn-success active" type="button" for="standardRadio" data-toggle="button"
                       aria-pressed="false" autocomplete="off">
                       <input class="form-check-input" type="radio" name="tipoEnvio" id="standardRadio" value="0.05"
@@ -158,7 +169,7 @@
                       Standard<br>
                       de 12 a 15 días
                     </label>
-  
+
                     <label class="btn btn-warning" type="button" for="expressRadio" data-toggle="button"
                       aria-pressed="false" autocomplete="off">
                       <input class="form-check-input" type="radio" name="tipoEnvio" id="expressRadio" value="0.07"
@@ -167,7 +178,7 @@
                       Express<br>
                       de 5 a 8 días
                     </label>
-  
+
                     <label class="btn btn-danger" type="button" for="premiumRadio" data-toggle="button"
                       aria-pressed="false" autocomplete="off">
                       <input class="form-check-input" type="radio" name="tipoEnvio" id="premiumRadio" value="0.15"
@@ -176,57 +187,191 @@
                       Premium<br>
                       de 2 a 5 días
                     </label>
-  
+
                   </div>
                 </div>
               </div>
 
               <hr style="width: 100%;">
 
-            <div class="row">
-              <div class="col-9 mx-auto">
+              <div class="row">
+                <div class="col-9 mx-auto">
 
-                <ul class="list-group mb-3">
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0">Subtotal:</h6>
-                    </div>
-                    <span class="text-dark" id="subtotalID"></span>
-                  </li>
+                  <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h6 class="my-0">Subtotal:</h6>
+                      </div>
+                      <span class="text-dark" id="subtotalID"></span>
+                    </li>
 
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0">Costo de envío:</h6>
-                    </div>
-                    <span class="text-dark" id="envioID"></span>
-                  </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h6 class="my-0">Costo de envío:</h6>
+                      </div>
+                      <span class="text-dark" id="envioID"></span>
+                    </li>
 
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="text-danger" id="totalConEnvioTextoID"></h6>
-                    </div>
-                    <strong id="totalConEnvioID"></strong>
-                  </li>
-                </ul>
-
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h6 class="text-danger" id="totalConEnvioTextoID"></h6>
+                      </div>
+                      <strong id="totalConEnvioID"></strong>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
+          </div>
 
+          <div class="row">
+            <button type="submit" form="needs-validation" class="btn btn-primary text-center col-6 mx-auto">Finalizar
+              compra</button>
+          </div>
+
+
+          <div class="modal fade" id="modalFormaDePago" tabindex="-1" aria-labelledby="modalFormaDePagoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalFormaDePagoLabel">Forma de pago:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+
+                    <div id="selectPayment" class="row text-center mb-4">
+                      <div class="btn-group btn-group-toggle mx-auto col-10" data-toggle="buttons">
+
+                        <label class="btn btn-info col-6" type="button" for="bankpaymentRadio" data-toggle="button"
+                          aria-pressed="false" autocomplete="off">
+                          <input class="form-check-input" type="radio" name="tipoDePago" id="bankpaymentRadio" value="2"
+                            onchange="metodoPago()">
+                          <h1><i class="fas fa-landmark"></i></h1>
+                          <h5>Transferencia bancaria</h5>
+                        </label>
+
+                        <label class="btn btn-info col-6" type="button" for="ccpaymentRadio" data-toggle="button"
+                          aria-pressed="false" autocomplete="off">
+                          <input class="form-check-input" type="radio" name="tipoDePago" id="ccpaymentRadio" value="1"
+                            onchange="metodoPago()">
+                          <h1><i class="fas fa-credit-card"></i></h1>
+                          <h5>Tarjeta de crédito</h5>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div id="modalDefinirBanco" class="d-none">
+                      <form id="pagoBanco">
+                        <div class="row">
+
+                          <div class="col-12 input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="modalBankBank">Banco</label>
+                            </div>
+                            <select class="custom-select" id="modalBankBank" required>
+                              <option selected="" disabled="" value="">Seleccione su banco</option>
+                              <option>BROU</option>
+                              <option>Itaú</option>
+                              <option>Santander</option>
+                              <option>BBVA</option>
+                              <option>HSBC</option>
+                              <option>Bandes</option>
+                              <option>Citibank</option>
+                              <option>BHU</option>
+                              <option>Scotiabank</option>
+                            </select>
+                          </div>
+
+                          <div class="col-12 input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="modalCuenta">Numero de cuenta</span>
+                            </div>
+                            <input class="form-control" type="text" id="cuenta" placeholder="Nº" required>
+                          </div>
+
+                          <div class="text-justify col-12">
+                            <p>Se le envíara por correo electrónico las instrucciones para realizar su
+                              transferencia.<br>
+                              Tu productos no será enviada hasta que el importe no haya sido recibido.</p>
+                          </div>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary" id="aceptarMetodoDePago">Aceptar</button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div id="modalDefinirTarjeta" class="d-none">
+                      <form id="pagoTarjeta">
+                        <div class="row">
+
+                          <div class="padding">
+                            <div class="row">
+                              <div class="container-fluid d-flex justify-content-center">
+                                <div class="col-sm-8 col-md-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                      <div class="row">
+                                        <div class="col-md-6"> <span>Tarjeta de Credito</span> </div>
+                                        <div class="col-md-6 text-right" style="margin-top: -5px;"> <img
+                                            src="https://img.icons8.com/color/36/000000/visa.png"> <img
+                                            src="https://img.icons8.com/color/36/000000/mastercard.png"></div>
+                                      </div>
+                                    </div>
+                                    <div class="card-body" style="height: 350px">
+                                      <div class="form-group"> <label for="cc-number" class="control-label">Número de
+                                          tarjeta</label> <input id="cc-number" type="number"
+                                          class="input-lg form-control cc-number" autocomplete="cc-number"
+                                          placeholder="•••• •••• •••• ••••" required> </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group"> <label for="cc-exp" class="control-label">Fecha de
+                                              expiracíon</label> <input id="cc-exp" type="number"
+                                              class="input-lg form-control cc-exp" autocomplete="cc-exp"
+                                              placeholder="•• / ••" required> </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group"> <label for="cc-cvc" class="control-label">Número de
+                                              CVC</label> <input id="cc-cvc" type="number"
+                                              class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••"
+                                              required> </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group"> <label for="numeric" class="control-label">Titular de la
+                                          tarjeta</label> <input type="text" class="input-lg form-control"> </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary" id="aceptarMetodoDePago">Aceptar</button>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
   </main>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
