@@ -45,12 +45,6 @@
         font-size: 3.5rem;
       }
     }
-/* 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    } */
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -336,7 +330,7 @@
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group"> <label for="cc-cvc" class="pay">Número de
-                                              CVC</label> <input type="password" class="input-lg form-control" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3" 
+                                              CVC</label> <input type="text" class="input-lg form-control placeicon" name="cvcpwd" id="cvc" placeholder="CVC" pattern="\d*" minlength="3" maxlength="3" 
                                               required> </div>
                                         </div>
                                       </div>
